@@ -1,0 +1,25 @@
+url <-  "https://raw.githubusercontent.com/chawanSatita/my_first_XML/main/mymenu.xml"
+
+read_html(url)
+
+
+## using pipline
+
+name <- url %>%
+  read_html() %>%
+  html_nodes("name") %>%
+  html_text()
+
+
+price <- url %>%
+  read_html() %>%
+  html_nodes("price") %>%
+  html_text()
+
+cal <- url %>%
+  read_html() %>%
+  html_nodes("calorie") %>%
+  html_text()
+
+df <- data.frame(name, price, cal)
+df
